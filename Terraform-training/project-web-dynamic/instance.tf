@@ -6,6 +6,6 @@ resource "aws_instance" "web" {
     "Name" = var.instance_name
   }
   user_data = file("${path.module}/install.sh")
-  vpc_security_group_ids = [ aws_security_group.allow_web.id ]
+  vpc_security_group_ids = [ aws_security_group.allow_web.id ] #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#security_groups
   
 }
