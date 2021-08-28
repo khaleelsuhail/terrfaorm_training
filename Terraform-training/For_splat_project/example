@@ -1,0 +1,3 @@
+output "instnace_data"{
+    value=[for each_instance in aws_instance.web: each_instance.public_ip ]
+}
