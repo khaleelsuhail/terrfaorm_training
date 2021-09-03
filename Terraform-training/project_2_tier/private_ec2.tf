@@ -2,10 +2,7 @@ module "ec2_instance_private" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "3.1.0"
   # insert the 34 required variables here
-  depends_on = [
-    module.vpc
-  ]
-  
+
   for_each = toset([module.vpc.private_subnets[0],module.vpc.private_subnets[1]])
 
   name = "${var.environment}-private-host-${each.key}"
