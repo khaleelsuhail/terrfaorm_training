@@ -1,11 +1,9 @@
 variable "instance_type" {
-  type = string
-  description = "enter the instance type"
+  default = "t2.micro"
 }
 variable "key_name" {
   type = string
-  description = "enter the key-pair name"
+  description = "enter the key-pair name" 
+  default="AWS"  
 }
-variable "instance_name" {
-  description = "enter instance name on launch"
-}
+

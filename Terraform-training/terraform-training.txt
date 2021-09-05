@@ -1,0 +1,53 @@
+1. What is terraform?
+2. Advanteages of Terraform 
+
+Step-01: Understand Problems with Traditional way of Managing Infrastructure
+Time it takes for building multiple environments
+Issues we face with different environments
+Scale-Up and Scale-Down On-Demand
+
+Step-02: Discuss how IaC with Terraform Solves them:-
+
+Visibility
+Stability
+Scalability
+Security
+Audit
+
+https://code.visualstudio.com/download
+https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform
+
+terraform init -backend-config=profile=<aws_profile_name>
+$ terraform init \
+    -backend-config="address=demo.consul.io" \
+    -backend-config="path=example_app/terraform_state" \
+    -backend-config="scheme=https"
+
+
+export AWS_PROFILE="developer"
+
+-------------------------------------------------------------------------------
+
+
+Step-01: Create AWS Profile using below command, provide that respective user access key and secret key
+
+aws configure --profile <profile-name> 
+
+aws configure --profile customprofile
+
+
+
+Step-02: In your Provider block in Terraform config file, update the same profile name.
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs#shared-credentials-file
+
+
+
+provider "aws" {
+  region                  = "us-west-2"
+  shared_credentials_file = "/Users/tf_user/.aws/creds"
+  profile                 = "customprofile"
+}
+
+vpc-38f80153
+
+
